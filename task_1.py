@@ -95,12 +95,16 @@ def train_and_report(split_data, data, model_name, smoothing = None):
     corpus = sum(split_data['all_data']).toarray()
     one_count = np.count_nonzero(corpus==1)
     perc = one_count / corpus.size
-    report += '(j)\n{ones}\t{perc}%'.format(ones=one_count, perc=perc)
+    report += '(j)\n{ones}\t{perc}%\n'.format(ones=one_count, perc=perc)
 
-    #(k): 2 favorite words + their log-prob TODO
-    words = ['log', 'probability']  #runners up: aaa, 40052308090
-
-    report += '(k)\n'
+    #(k): 2 favorite words + their log-prob
+    word1 = 'log'
+    word2 = 'probability'  #runners up: aaa, 40052308090
+    word1_ind = split_data['vectorizer'].vocabulary_[word1]
+    word1_probs = " ".join([split_data['label_names'][i] + ":" + str(model.feature_log_prob_[i,word1_ind]) for i in range(len(split_data['label_names']))])
+    word2_ind = split_data['vectorizer'].vocabulary_[word2]
+    word2_probs = " ".join([split_data['label_names'][i] + ":" + str(model.feature_log_prob_[i,word2_ind]) for i in range(len(split_data['label_names']))])
+    report += '(k)\n{w1}:\n{arr1}\n{w2}:\n{arr2}\n'.format(w1=word1, w2=word2, arr1=word1_probs, arr2=word2_probs)
 
     #end report
     report += '\n\n'
