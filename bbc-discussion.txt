@@ -1,0 +1,7 @@
+a)
+The classes are fairly balanced, as the class with the smallest number of samples (entertainment) is just under 80% of the size of the largest class (sport). This means that accuracy is a decent measure of the classifier's performance. That said, if the classifier is being used to determine which article to show a reader, it seems like we should care more about the precision than the recall.
+This is because the reader will probably care more about seeing a business article in the sports section than not seeing a sports article. Because of this, I think the best measure would be a macro F-measure with B < 1.
+
+b)
+The performance is different due to the modified smoothing factor of the models. Increasing this value effectively distributes the weights of the features that have the most effect on the classification to those with the weakest. This makes the model more resilient to feature combinations that have not appeared before. In other words, it makes a feature that has not appeared in a class before affect that class's probability less.
+The two models with the same smoothing value have identical results, which means that the smoothing value is the only differentiating factor between models.
