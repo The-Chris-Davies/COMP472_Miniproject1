@@ -143,8 +143,8 @@ def main():
               [DecisionTreeClassifier, {}, "Default Decision Tree"],
               [GridSearchCV, {'estimator': DecisionTreeClassifier(), 'param_grid': dtree_params}, "Grid Search Decision Tree"],
               [Perceptron, {}, "Default Perceptron"],
-              [MLPClassifier, {'hidden_layer_sizes': (100)}, "1x100 Sigmoid Multi-Layer Perceptron"],
-              [GridSearchCV, {'estimator': MLPClassifier(), 'param_grid': mlp_params}, "Grid Search Multi-Layer Perceptron"]]
+              [MLPClassifier, {'max_iter': 10000,'hidden_layer_sizes': (100)}, "1x100 Sigmoid Multi-Layer Perceptron"],
+              [GridSearchCV, {'estimator': MLPClassifier(max_iter=10000), 'param_grid': mlp_params}, "Grid Search Multi-Layer Perceptron"]]
 
     report = ''
 
