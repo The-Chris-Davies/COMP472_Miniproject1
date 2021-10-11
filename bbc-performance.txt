@@ -1,0 +1,224 @@
+(a)
+default MultinomialNB attempt 1
+===============================
+(b)
+[[111   0   2   0   1]
+ [  0  71   0   0   1]
+ [  1   0  93   0   0]
+ [  0   0   0  87   0]
+ [  1   3   1   0  73]]
+(c)
+               precision    recall  f1-score   support
+
+     business       0.98      0.97      0.98       114
+entertainment       0.96      0.99      0.97        72
+     politics       0.97      0.99      0.98        94
+        sport       1.00      1.00      1.00        87
+         tech       0.97      0.94      0.95        78
+
+     accuracy                           0.98       445
+    macro avg       0.98      0.98      0.98       445
+ weighted avg       0.98      0.98      0.98       445
+(d)
+Accuracy_score:	0.9775280898876404
+Macro-Average F1:	0.9767544084884181
+Weighted-Average F1:	0.9774579982584574
+(e)
+business	0.2292134831460674
+entertainment	0.17348314606741572
+politics	0.18741573033707865
+sport	0.22966292134831462
+tech	0.1802247191011236
+(f)
+Vocabulary size:	29421
+(g)
+business	164663
+entertainment	124893
+politics	185208
+sport	162953
+tech	198640
+(h)
+Words in the Corpus:	836357
+(i)
+business:	17538	0.5961048230855511%
+entertainment:	17746	0.6031746031746031%
+politics:	18201	0.6186397471194045%
+sport:	18850	0.6406988205703409%
+tech:	17323	0.5887971177050406%
+(j)
+10005	0.34006322014887325%
+(k)
+log:
+business:-11.973604505045628 entertainment:-11.792570325389462 politics:-11.390701332224854 sport:-11.99246473513675 tech:-10.371264746780511
+probability:
+business:-11.973604505045628 entertainment:-11.792570325389462 politics:-11.390701332224854 sport:-11.99246473513675 tech:-12.163024216008566
+
+
+(a)
+default MultinomialNB attempt 2
+===============================
+(b)
+[[111   0   2   0   1]
+ [  0  71   0   0   1]
+ [  1   0  93   0   0]
+ [  0   0   0  87   0]
+ [  1   3   1   0  73]]
+(c)
+               precision    recall  f1-score   support
+
+     business       0.98      0.97      0.98       114
+entertainment       0.96      0.99      0.97        72
+     politics       0.97      0.99      0.98        94
+        sport       1.00      1.00      1.00        87
+         tech       0.97      0.94      0.95        78
+
+     accuracy                           0.98       445
+    macro avg       0.98      0.98      0.98       445
+ weighted avg       0.98      0.98      0.98       445
+(d)
+Accuracy_score:	0.9775280898876404
+Macro-Average F1:	0.9767544084884181
+Weighted-Average F1:	0.9774579982584574
+(e)
+business	0.2292134831460674
+entertainment	0.17348314606741572
+politics	0.18741573033707865
+sport	0.22966292134831462
+tech	0.1802247191011236
+(f)
+Vocabulary size:	29421
+(g)
+business	164663
+entertainment	124893
+politics	185208
+sport	162953
+tech	198640
+(h)
+Words in the Corpus:	836357
+(i)
+business:	17538	0.5961048230855511%
+entertainment:	17746	0.6031746031746031%
+politics:	18201	0.6186397471194045%
+sport:	18850	0.6406988205703409%
+tech:	17323	0.5887971177050406%
+(j)
+10005	0.34006322014887325%
+(k)
+log:
+business:-11.973604505045628 entertainment:-11.792570325389462 politics:-11.390701332224854 sport:-11.99246473513675 tech:-10.371264746780511
+probability:
+business:-11.973604505045628 entertainment:-11.792570325389462 politics:-11.390701332224854 sport:-11.99246473513675 tech:-12.163024216008566
+
+
+(a)
+MultinomialNB alpha=0.0001
+==========================
+(b)
+[[111   0   1   0   2]
+ [  0  71   0   0   1]
+ [  3   0  90   0   1]
+ [  0   0   0  87   0]
+ [  0   2   1   0  75]]
+(c)
+               precision    recall  f1-score   support
+
+     business       0.97      0.97      0.97       114
+entertainment       0.97      0.99      0.98        72
+     politics       0.98      0.96      0.97        94
+        sport       1.00      1.00      1.00        87
+         tech       0.95      0.96      0.96        78
+
+     accuracy                           0.98       445
+    macro avg       0.97      0.98      0.98       445
+ weighted avg       0.98      0.98      0.98       445
+(d)
+Accuracy_score:	0.9752808988764045
+Macro-Average F1:	0.9752301007153253
+Weighted-Average F1:	0.9752817522622487
+(e)
+business	0.2292134831460674
+entertainment	0.17348314606741572
+politics	0.18741573033707865
+sport	0.22966292134831462
+tech	0.1802247191011236
+(f)
+Vocabulary size:	29421
+(g)
+business	164663
+entertainment	124893
+politics	185208
+sport	162953
+tech	198640
+(h)
+Words in the Corpus:	836357
+(i)
+business:	17538	0.5961048230855511%
+entertainment:	17746	0.6031746031746031%
+politics:	18201	0.6186397471194045%
+sport:	18850	0.6406988205703409%
+tech:	17323	0.5887971177050406%
+(j)
+10005	0.34006322014887325%
+(k)
+log:
+business:-20.978659262240694 entertainment:-20.7513472581065 politics:-11.901971083904547 sport:-21.001767968126252 tech:-10.386849677606126
+probability:
+business:-20.978659262240694 entertainment:-20.7513472581065 politics:-11.901971083904547 sport:-21.001767968126252 tech:-21.206647961816408
+
+
+(a)
+MultinomialNB alpha=0.9
+=======================
+(b)
+[[111   0   2   0   1]
+ [  0  71   0   0   1]
+ [  1   0  93   0   0]
+ [  0   0   0  87   0]
+ [  1   3   1   0  73]]
+(c)
+               precision    recall  f1-score   support
+
+     business       0.98      0.97      0.98       114
+entertainment       0.96      0.99      0.97        72
+     politics       0.97      0.99      0.98        94
+        sport       1.00      1.00      1.00        87
+         tech       0.97      0.94      0.95        78
+
+     accuracy                           0.98       445
+    macro avg       0.98      0.98      0.98       445
+ weighted avg       0.98      0.98      0.98       445
+(d)
+Accuracy_score:	0.9775280898876404
+Macro-Average F1:	0.9767544084884181
+Weighted-Average F1:	0.9774579982584574
+(e)
+business	0.2292134831460674
+entertainment	0.17348314606741572
+politics	0.18741573033707865
+sport	0.22966292134831462
+tech	0.1802247191011236
+(f)
+Vocabulary size:	29421
+(g)
+business	164663
+entertainment	124893
+politics	185208
+sport	162953
+tech	198640
+(h)
+Words in the Corpus:	836357
+(i)
+business:	17538	0.5961048230855511%
+entertainment:	17746	0.6031746031746031%
+politics:	18201	0.6186397471194045%
+sport:	18850	0.6406988205703409%
+tech:	17323	0.5887971177050406%
+(j)
+10005	0.34006322014887325%
+(k)
+log:
+business:-12.06023022669143 entertainment:-11.875435904790681 politics:-11.425231941495982 sport:-12.079443725145405 tech:-10.372595123662009
+probability:
+business:-12.06023022669143 entertainment:-11.875435904790681 politics:-11.425231941495982 sport:-12.079443725145405 tech:-12.25290799023151
+
+
