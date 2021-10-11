@@ -67,7 +67,8 @@ def generate_report(split_data, model, model_name):
     #(a): model description
     report += '\n\n(a)\n{name}\n{under}\n'.format(name=model_name, under = '='*len(model_name))
     # also add model parameters
-    report += 'params: {params}\n'.format(params=model.get_params())
+    if(type(model) == GridSearchCV):
+        report += 'params: {params}\n'.format(params=model.best_estimator_.get_params())
 
     #(b): confusion matrix
     cmatrix = confusion_matrix(split_data['test_labels'], predicted_labels)
@@ -143,8 +144,8 @@ def main():
               [DecisionTreeClassifier, {}, "Default Decision Tree"],
               [GridSearchCV, {'estimator': DecisionTreeClassifier(), 'param_grid': dtree_params}, "Grid Search Decision Tree"],
               [Perceptron, {}, "Default Perceptron"],
-              [MLPClassifier, {'max_iter': 10000,'hidden_layer_sizes': (100)}, "1x100 Sigmoid Multi-Layer Perceptron"],
-              [GridSearchCV, {'estimator': MLPClassifier(max_iter=10000), 'param_grid': mlp_params}, "Grid Search Multi-Layer Perceptron"]]
+              [MLPClassifier, {'hidden_layer_sizes': (100)}, "1x100 Sigmoid Multi-Layer Perceptron"],
+              [GridSearchCV, {'estimator': MLPClassifier(), 'param_grid': mlp_params}, "Grid Search Multi-Layer Perceptron"]]
 
     report = ''
 

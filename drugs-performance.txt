@@ -3,175 +3,171 @@
 (a)
 Gaussian Naive Bayes
 ====================
-params: {'priors': None, 'var_smoothing': 1e-09}
 (b)
-[[ 6  0  0  0  0]
- [ 0  4  0  0  0]
+[[ 8  0  0  0  0]
+ [ 1  4  0  0  0]
  [ 0  0  6  0  0]
- [ 0  0  0  7  0]
- [ 2  2  3  0 20]]
+ [ 0  0  0  9  1]
+ [ 3  1  3  0 14]]
 (c)
               precision    recall  f1-score   support
 
-       drugA       0.75      1.00      0.86         6
-       drugB       0.67      1.00      0.80         4
+       drugA       0.67      1.00      0.80         8
+       drugB       0.80      0.80      0.80         5
        drugC       0.67      1.00      0.80         6
-       drugX       1.00      1.00      1.00         7
-       drugY       1.00      0.74      0.85        27
+       drugX       1.00      0.90      0.95        10
+       drugY       0.93      0.67      0.78        21
 
-    accuracy                           0.86        50
-   macro avg       0.82      0.95      0.86        50
-weighted avg       0.90      0.86      0.86        50
+    accuracy                           0.82        50
+   macro avg       0.81      0.87      0.83        50
+weighted avg       0.86      0.82      0.82        50
 
 (d)
-Accuracy:	0.86
-Macro F1:	0.8616413373860183
-Weighted F1:	0.8624316109422492
+Accuracy:	0.82
+Macro F1:	0.825029239766082
+Weighted F1:	0.820140350877193
 
 
 (a)
 Default Decision Tree
 =====================
-params: {'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': None, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'random_state': None, 'splitter': 'best'}
 (b)
-[[ 6  0  0  0  0]
- [ 0  4  0  0  0]
+[[ 8  0  0  0  0]
+ [ 1  4  0  0  0]
  [ 0  0  6  0  0]
- [ 0  0  0  7  0]
- [ 0  0  0  0 27]]
+ [ 0  0  0 10  0]
+ [ 0  0  0  0 21]]
 (c)
               precision    recall  f1-score   support
 
-       drugA       1.00      1.00      1.00         6
-       drugB       1.00      1.00      1.00         4
+       drugA       0.89      1.00      0.94         8
+       drugB       1.00      0.80      0.89         5
        drugC       1.00      1.00      1.00         6
-       drugX       1.00      1.00      1.00         7
-       drugY       1.00      1.00      1.00        27
+       drugX       1.00      1.00      1.00        10
+       drugY       1.00      1.00      1.00        21
 
-    accuracy                           1.00        50
-   macro avg       1.00      1.00      1.00        50
-weighted avg       1.00      1.00      1.00        50
+    accuracy                           0.98        50
+   macro avg       0.98      0.96      0.97        50
+weighted avg       0.98      0.98      0.98        50
 
 (d)
-Accuracy:	1.0
-Macro F1:	1.0
-Weighted F1:	1.0
+Accuracy:	0.98
+Macro F1:	0.966013071895425
+Weighted F1:	0.9794771241830066
 
 
 (a)
 Grid Search Decision Tree
 =========================
-params: {'cv': None, 'error_score': nan, 'estimator__ccp_alpha': 0.0, 'estimator__class_weight': None, 'estimator__criterion': 'gini', 'estimator__max_depth': None, 'estimator__max_features': None, 'estimator__max_leaf_nodes': None, 'estimator__min_impurity_decrease': 0.0, 'estimator__min_impurity_split': None, 'estimator__min_samples_leaf': 1, 'estimator__min_samples_split': 2, 'estimator__min_weight_fraction_leaf': 0.0, 'estimator__random_state': None, 'estimator__splitter': 'best', 'estimator': DecisionTreeClassifier(), 'n_jobs': None, 'param_grid': {'criterion': ['gini', 'entropy'], 'max_depth': [5, 100], 'min_samples_split': [2, 5, 10]}, 'pre_dispatch': '2*n_jobs', 'refit': True, 'return_train_score': False, 'scoring': None, 'verbose': 0}
+params: {'ccp_alpha': 0.0, 'class_weight': None, 'criterion': 'gini', 'max_depth': 5, 'max_features': None, 'max_leaf_nodes': None, 'min_impurity_decrease': 0.0, 'min_impurity_split': None, 'min_samples_leaf': 1, 'min_samples_split': 2, 'min_weight_fraction_leaf': 0.0, 'random_state': None, 'splitter': 'best'}
 (b)
-[[ 6  0  0  0  0]
- [ 0  4  0  0  0]
+[[ 8  0  0  0  0]
+ [ 1  4  0  0  0]
  [ 0  0  6  0  0]
- [ 0  0  0  7  0]
- [ 0  0  0  0 27]]
+ [ 0  0  0 10  0]
+ [ 0  0  0  0 21]]
 (c)
               precision    recall  f1-score   support
 
-       drugA       1.00      1.00      1.00         6
-       drugB       1.00      1.00      1.00         4
+       drugA       0.89      1.00      0.94         8
+       drugB       1.00      0.80      0.89         5
        drugC       1.00      1.00      1.00         6
-       drugX       1.00      1.00      1.00         7
-       drugY       1.00      1.00      1.00        27
+       drugX       1.00      1.00      1.00        10
+       drugY       1.00      1.00      1.00        21
 
-    accuracy                           1.00        50
-   macro avg       1.00      1.00      1.00        50
-weighted avg       1.00      1.00      1.00        50
+    accuracy                           0.98        50
+   macro avg       0.98      0.96      0.97        50
+weighted avg       0.98      0.98      0.98        50
 
 (d)
-Accuracy:	1.0
-Macro F1:	1.0
-Weighted F1:	1.0
+Accuracy:	0.98
+Macro F1:	0.966013071895425
+Weighted F1:	0.9794771241830066
 
 
 (a)
 Default Perceptron
 ==================
-params: {'alpha': 0.0001, 'class_weight': None, 'early_stopping': False, 'eta0': 1.0, 'fit_intercept': True, 'l1_ratio': 0.15, 'max_iter': 1000, 'n_iter_no_change': 5, 'n_jobs': None, 'penalty': None, 'random_state': 0, 'shuffle': True, 'tol': 0.001, 'validation_fraction': 0.1, 'verbose': 0, 'warm_start': False}
 (b)
-[[ 0  0  0  2  4]
- [ 0  0  0  4  0]
- [ 0  0  0  3  3]
- [ 0  0  0  3  4]
- [ 0  0  0  3 24]]
+[[ 0  2  0  1  5]
+ [ 0  5  0  0  0]
+ [ 0  1  0  4  1]
+ [ 0  3  0  5  2]
+ [ 0  1  0  0 20]]
 (c)
               precision    recall  f1-score   support
 
-       drugA       0.00      0.00      0.00         6
-       drugB       0.00      0.00      0.00         4
+       drugA       0.00      0.00      0.00         8
+       drugB       0.42      1.00      0.59         5
        drugC       0.00      0.00      0.00         6
-       drugX       0.20      0.43      0.27         7
-       drugY       0.69      0.89      0.77        27
+       drugX       0.50      0.50      0.50        10
+       drugY       0.71      0.95      0.82        21
 
-    accuracy                           0.54        50
-   macro avg       0.18      0.26      0.21        50
-weighted avg       0.40      0.54      0.46        50
+    accuracy                           0.60        50
+   macro avg       0.33      0.49      0.38        50
+weighted avg       0.44      0.60      0.50        50
 
 (d)
-Accuracy:	0.54
-Macro F1:	0.2093841642228739
-Weighted F1:	0.45624633431085043
+Accuracy:	0.6
+Macro F1:	0.3809123649459784
+Weighted F1:	0.5016806722689076
 
 
 (a)
 1x100 Sigmoid Multi-Layer Perceptron
 ====================================
-params: {'activation': 'relu', 'alpha': 0.0001, 'batch_size': 'auto', 'beta_1': 0.9, 'beta_2': 0.999, 'early_stopping': False, 'epsilon': 1e-08, 'hidden_layer_sizes': 100, 'learning_rate': 'constant', 'learning_rate_init': 0.001, 'max_fun': 15000, 'max_iter': 10000, 'momentum': 0.9, 'n_iter_no_change': 10, 'nesterovs_momentum': True, 'power_t': 0.5, 'random_state': None, 'shuffle': True, 'solver': 'adam', 'tol': 0.0001, 'validation_fraction': 0.1, 'verbose': False, 'warm_start': False}
 (b)
-[[ 6  0  0  0  0]
- [ 0  4  0  0  0]
- [ 0  0  6  0  0]
- [ 0  0  1  5  1]
- [ 0  1  0  0 26]]
+[[ 2  0  0  2  4]
+ [ 0  2  0  3  0]
+ [ 0  0  0  6  0]
+ [ 0  0  0  8  2]
+ [ 0  0  0  1 20]]
 (c)
               precision    recall  f1-score   support
 
-       drugA       1.00      1.00      1.00         6
-       drugB       0.80      1.00      0.89         4
-       drugC       0.86      1.00      0.92         6
-       drugX       1.00      0.71      0.83         7
-       drugY       0.96      0.96      0.96        27
+       drugA       1.00      0.25      0.40         8
+       drugB       1.00      0.40      0.57         5
+       drugC       0.00      0.00      0.00         6
+       drugX       0.40      0.80      0.53        10
+       drugY       0.77      0.95      0.85        21
 
-    accuracy                           0.94        50
-   macro avg       0.92      0.94      0.92        50
-weighted avg       0.95      0.94      0.94        50
+    accuracy                           0.64        50
+   macro avg       0.63      0.48      0.47        50
+weighted avg       0.66      0.64      0.59        50
 
 (d)
-Accuracy:	0.94
-Macro F1:	0.9216524216524216
-Weighted F1:	0.9385470085470086
+Accuracy:	0.64
+Macro F1:	0.47116514690982775
+Weighted F1:	0.585256332320162
 
 
 (a)
 Grid Search Multi-Layer Perceptron
 ==================================
-params: {'cv': None, 'error_score': nan, 'estimator__activation': 'relu', 'estimator__alpha': 0.0001, 'estimator__batch_size': 'auto', 'estimator__beta_1': 0.9, 'estimator__beta_2': 0.999, 'estimator__early_stopping': False, 'estimator__epsilon': 1e-08, 'estimator__hidden_layer_sizes': (100,), 'estimator__learning_rate': 'constant', 'estimator__learning_rate_init': 0.001, 'estimator__max_fun': 15000, 'estimator__max_iter': 10000, 'estimator__momentum': 0.9, 'estimator__n_iter_no_change': 10, 'estimator__nesterovs_momentum': True, 'estimator__power_t': 0.5, 'estimator__random_state': None, 'estimator__shuffle': True, 'estimator__solver': 'adam', 'estimator__tol': 0.0001, 'estimator__validation_fraction': 0.1, 'estimator__verbose': False, 'estimator__warm_start': False, 'estimator': MLPClassifier(max_iter=10000), 'n_jobs': None, 'param_grid': {'activation': ['logistic', 'tanh', 'relu', 'identity'], 'solver': ['adam', 'sgd'], 'hidden_layer_sizes': [(50, 20), (7, 7, 7, 7)]}, 'pre_dispatch': '2*n_jobs', 'refit': True, 'return_train_score': False, 'scoring': None, 'verbose': 0}
+params: {'activation': 'tanh', 'alpha': 0.0001, 'batch_size': 'auto', 'beta_1': 0.9, 'beta_2': 0.999, 'early_stopping': False, 'epsilon': 1e-08, 'hidden_layer_sizes': (50, 20), 'learning_rate': 'constant', 'learning_rate_init': 0.001, 'max_fun': 15000, 'max_iter': 200, 'momentum': 0.9, 'n_iter_no_change': 10, 'nesterovs_momentum': True, 'power_t': 0.5, 'random_state': None, 'shuffle': True, 'solver': 'adam', 'tol': 0.0001, 'validation_fraction': 0.1, 'verbose': False, 'warm_start': False}
 (b)
-[[ 5  1  0  0  0]
- [ 2  2  0  0  0]
- [ 0  0  6  0  0]
- [ 0  0  0  6  1]
- [ 0  1  0  0 26]]
+[[ 5  0  0  3  0]
+ [ 0  0  0  5  0]
+ [ 0  0  0  6  0]
+ [ 0  0  0  9  1]
+ [ 0  0  0  0 21]]
 (c)
               precision    recall  f1-score   support
 
-       drugA       0.71      0.83      0.77         6
-       drugB       0.50      0.50      0.50         4
-       drugC       1.00      1.00      1.00         6
-       drugX       1.00      0.86      0.92         7
-       drugY       0.96      0.96      0.96        27
+       drugA       1.00      0.62      0.77         8
+       drugB       0.00      0.00      0.00         5
+       drugC       0.00      0.00      0.00         6
+       drugX       0.39      0.90      0.55        10
+       drugY       0.95      1.00      0.98        21
 
-    accuracy                           0.90        50
-   macro avg       0.84      0.83      0.83        50
-weighted avg       0.91      0.90      0.90        50
+    accuracy                           0.70        50
+   macro avg       0.47      0.51      0.46        50
+weighted avg       0.64      0.70      0.64        50
 
 (d)
-Accuracy:	0.9
-Macro F1:	0.8310541310541311
-Weighted F1:	0.9015384615384616
+Accuracy:	0.7
+Macro F1:	0.4582859001463652
+Weighted F1:	0.6424003903073671
 
 
 (a)
@@ -179,9 +175,9 @@ Gaussian Naive Bayes, average over 10 runs
 ==========================================
 
 Average metrics:
-	Accuracy:	0.86
-	Macro F1:	0.8616413373860183
-	Weighted F1:	0.8624316109422491
+	Accuracy:	0.82
+	Macro F1:	0.825029239766082
+	Weighted F1:	0.8201403508771928
 Std. Dev. for metrics:
 	Accuracy:	0.0
 	Macro F1:	0.0
@@ -193,11 +189,11 @@ Default Decision Tree, average over 10 runs
 ===========================================
 
 Average metrics:
-	Accuracy:	1.0
-	Macro F1:	1.0
-	Weighted F1:	1.0
+	Accuracy:	0.9800000000000001
+	Macro F1:	0.966013071895425
+	Weighted F1:	0.9794771241830066
 Std. Dev. for metrics:
-	Accuracy:	0.0
+	Accuracy:	1.1102230246251565e-16
 	Macro F1:	0.0
 	Weighted F1:	0.0
 
@@ -207,11 +203,11 @@ Grid Search Decision Tree, average over 10 runs
 ===============================================
 
 Average metrics:
-	Accuracy:	1.0
-	Macro F1:	1.0
-	Weighted F1:	1.0
+	Accuracy:	0.9800000000000001
+	Macro F1:	0.966013071895425
+	Weighted F1:	0.9794771241830066
 Std. Dev. for metrics:
-	Accuracy:	0.0
+	Accuracy:	1.1102230246251565e-16
 	Macro F1:	0.0
 	Weighted F1:	0.0
 
@@ -221,12 +217,12 @@ Default Perceptron, average over 10 runs
 ========================================
 
 Average metrics:
-	Accuracy:	0.54
-	Macro F1:	0.2093841642228739
-	Weighted F1:	0.45624633431085043
+	Accuracy:	0.5999999999999999
+	Macro F1:	0.38091236494597835
+	Weighted F1:	0.5016806722689076
 Std. Dev. for metrics:
-	Accuracy:	0.0
-	Macro F1:	0.0
+	Accuracy:	1.1102230246251565e-16
+	Macro F1:	5.551115123125783e-17
 	Weighted F1:	0.0
 
 
@@ -235,13 +231,13 @@ Std. Dev. for metrics:
 ==========================================================
 
 Average metrics:
-	Accuracy:	0.882
-	Macro F1:	0.803422288682666
-	Weighted F1:	0.8576367606397796
+	Accuracy:	0.6559999999999999
+	Macro F1:	0.4634852346808894
+	Weighted F1:	0.5958018844613691
 Std. Dev. for metrics:
-	Accuracy:	0.17121915780659588
-	Macro F1:	0.31704826709136313
-	Weighted F1:	0.222036303775513
+	Accuracy:	0.05499090833947006
+	Macro F1:	0.09859258149229498
+	Weighted F1:	0.07843378552612168
 
 
 (a)
@@ -249,10 +245,10 @@ Grid Search Multi-Layer Perceptron, average over 10 runs
 ========================================================
 
 Average metrics:
-	Accuracy:	0.944
-	Macro F1:	0.9204095729567427
-	Weighted F1:	0.9441833805607391
+	Accuracy:	0.756
+	Macro F1:	0.5780731988265887
+	Weighted F1:	0.7077367184247453
 Std. Dev. for metrics:
-	Accuracy:	0.02497999199359358
-	Macro F1:	0.046199775283298744
-	Weighted F1:	0.02490841240530246
+	Accuracy:	0.05713142742834279
+	Macro F1:	0.08946415149918464
+	Weighted F1:	0.05884189180717228
