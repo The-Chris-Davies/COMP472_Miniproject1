@@ -1,0 +1,77 @@
+*******************
+Task 1. BBC Dataset
+*******************
+
+1. The BBC dataset has a very even distribution of classes, which means that accuracy is a useful metric to measure the efficacy of a given model.
+
+Note, class order:
+0: business
+1: entertainment
+2: politics
+3: sport
+4:tech
+
+2. The default multinomialNB performed very well, with an accuracy of over 97%.
+Of all the classifications, sport was classified correctly 100% of the time.
+Looking at the different classes, this makes some intuitive sense, as sport seems to be very different than the rest of the classes, and you can imagine that there are many elements in the vocabulary that only appear for sport topics.
+(Sport exists in a distinct region of the latent space, if you'd like).
+The most miscategorized class is entertainment, which was mislabelled as tech three times, and politics, which was mislabelled as business twice and tech once. The reason for the first I will discuss in a bit, but the second makes some sense as well: if you consider the language used in politics articles, they seem intuitively to use the same vocabulary as business articles.
+
+3. the accuracy score and average/weighted F1 scores are all very similar, which is expected considering the even class distributions. This is also shown in section (e), where the prior probabilities are all quite similar.
+
+4. There are just under 29.5k unique words in the vocabulary. It seems likely to me that this could be narrowed down significantly to disclude common words such as articles, standard verbs, etc, which may even positively effect the model performance, but I have not done the analysis necessary to make a claim either way.
+
+5. each category has a similar number of word tokens, with entertainment being the low outlier at around 12.5k words, around 4k less than the next lowest category. This may account for the misclassification of some entertainment articles, as there are fewer unique words in the corpus that belong to entertainment articles.
+
+6. each class has a similar number of words from the vocabulary not appearing in the training set, around 0.6% for each. This indicates to me that it may be a good idea to prune the vocabulary list, to increase this difference.
+
+The second instance of the multinomialNB model with default hyperparameters performed identically to the first one, which is expected considering that the two are identical, as the training of these models is purely deterministic, so given the same training set, the same model should result every time.
+
+************
+alpha=0.0001
+************
+
+For the model with alpha=0.0001, the accuracy, macro-f1, and weighted-f1 all decreased by around .5%. Not a significant amount given the size of the test set, but it is worth noting nonetheless.
+
+This decrease in performance is expected, as the point of the alpha value is to allow the model to more accurately label cases that it has not seen before. By decreasing alpha, the model is less able to account for never-before-seen word combinations.
+
+Of course, the prior probabilities, vocabulary size both per class and total, and the number/% of words with frequency 0 in each class remain constant for all models, as these are determined by the data set.
+
+*********
+alpha=0.9
+*********
+
+With alpha=0.9, the metrics are very similar to those of the stock model. In fact, it classified the test set identically to the stock model.
+This makes sense, as the stock model has alpha=1.0, and a similar value should result in similar classifications. (This makes you think that it is perhaps possible to determine a correct value of alpha using a flavor of gradient descent / newton's method, but again, this is just idle speculation).
+
+To recap for task 1, the best model we found was the multinomial NB with alpha=1.0, the default value.
+
+
+********
+Task 2!!
+********
+
+Task 2 differs from task 1 in several ways. One, the input data contains nominal, ordinal, and numerical features which must be interpreted, and two, the distribution of data is skewed heavily towards drug y, followed by drug x, with drugs a, b, and c taking a relatively small percentage of the classes. This means that accuracy is a useless metric metric for determining the fitness of a model.
+
+The gaussian naive-bayes performed fine, but it misclassified many instances of drugs a, b, and c as drug Y. This is expected, as the prior probability of drug Y is much larger than that of the rest of the classes, as it appears much more frequently in the dataset.
+
+The decision tree performed *much* better than the naive-bayes classifier. On the test set, it only made one error, where it misclassified drug a as drug b. This shows that the dataset is well-suited to a decision tree classifier, implying that the elements are easily distinguished by a binary separator. The weighted F1 score of this model was 0.98.
+
+For the grid-search decision tree, the max_depth options were 5 and 100, and the min_samples_split could be either 2, 5, or 10. The selected model used gini criterion, with a max depth of 5 and a min_samples_split of 2. The latter 2 hyperparameters are the default, so the only differing parameter compared to the first model is the max depth.
+The grid-search decision tree performed exactly as expected performed exactly the same as the default one, as it classified all the test samples the same way. The weighted F1 score of this model was 0.98.
+
+The perceptron performed poorly on this task, implying that the classes are not linearly separable. The weighted F1 score of the perceptron model was 0.5, which is very poor.
+
+the MLP with 1x100 hidden layer only performed marginally better than the perceptron.
+This is due to the lack of training steps: the model was unable to converge to a final state before the default 200 training steps had completed. in fact, this was the case for all the MLP models. I experimented with increasing this value, and at around 10000 training steps, the models were able to converge. I calculated the metrics for these models, let me quickly pull them up for you.
+Of course, training the models with 2 orders of magnitude more steps took a lot longer, especially with the exhaustive grid search. But the results are, in my view, worth it. The default mlp with the increased steps has a weighted f1 score of 0.96, compared to the 0.6 with 200 steps.
+
+because of this training step issue, I will just discuss the results with the increased steps for the grid search MLP.
+
+For the grid search MLP, I used two hidden layer topologies: one with 50, then 20 neurons, and one with four layers of 7 neurons each. To be perfectly honest, I didn't expect the second one to be performant, as I expected that the layers were too narrow to encode enough information for a meaningful distinction between layers. It seems I was correct, as the grid search selected the (50,20) topology. in terms of activation function, tanh was selected, and the solver used was ADAM.
+
+
+For the 10-run averages, the naive-bayes and decision tree classifiers had no std. deviation, meaning each instance of each model was identical. This is expected, for the same reason that I touched on with task 1: there is no random initial configuration for these models, and the training is deterministic, so they should all produce the same result given the same training data.
+The perceptron also converged to the same result over every trial run, due to the small number of 'moving parts' in the model.
+For the MLPs, there was a large skew in metrics for both, due to the lack of convergence. Even with the increased training steps, though, there was quite a bit of deviation: it's obvious that, with so many more neurons, the models found different local minima.
+What I found interesting is that, while the accuracy of the single attempt of the 1x100 MLP performed better than the (50,20) one, the (50,20) model had a much greater average accuracy and a standard deviation an order of magnitude lower. This tells me that the 1x100 MLP is more likely to converge to a local minimum than the deeper network. A while ago I was messing around with the MNIST handwriting dataset and different neural nets, and I found a similar result.
